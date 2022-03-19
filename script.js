@@ -53,7 +53,19 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    if (numRows == 0) {
+        return;
+    }
+    else if (numRows == 1) {
+        var table = document.getElementById("grid");
+        table.deleteRow(0);
+        numCols = 0;
+        numRows--;
+        return;
+    }
+    var table = document.getElementById("grid");
+    table.deleteRow(0);
+    numRows--;
 }
 
 // Remove a column
