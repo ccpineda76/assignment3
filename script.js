@@ -23,7 +23,32 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    if ((numRows == 0) && (numCols == 0)) {
+        newRow = table.insertRow();
+        cell = newRow.insertCell();
+        numRows++;
+        numCols++;
+    }
+    else if (numRows == 1) {
+        cell = newRow.insertCell();
+        numCols++;
+    }
+    else {
+        numCols++;
+        let temporary_rows = numRows;
+        let temporary_columns = numCols;
+        for (let i = 0; i < temporary_rows; i++) {
+            table.deleteRow(0);
+        }
+        for (let i = 0; i < temporary_rows; i++) {
+            newRow = table.insertRow();
+            for (let j = 0; j < temporary_columns; j++) {
+                cell = newRow.insertCell();
+            }
+        }
+        numRows = temporary_rows;
+    }
 }
 
 // Remove a row
