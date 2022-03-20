@@ -115,7 +115,10 @@ function fillU() {
 
 // Fill all cells
 function fillAll() {
-    alert("Clicked Fill All"); // Replace this line with your code.
+    var table = document.getElementById("grid").getElementsByTagName("td");
+    for (let i = 0; i < (numRows * numCols); i++) {
+        table[i].style.backgroundColor = document.getElementById("selectedColorId").value;
+    }
 }
 
 // Clear all cells
