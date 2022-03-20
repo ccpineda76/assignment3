@@ -70,7 +70,31 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    if (numRows == 0) {
+        return;
+    }
+    else if (numCols == 1) {
+        for (let i = 0; i < numRows; i++) {
+            table.deleteRow(0);
+        }
+        numCols = 0;
+        numRows = 0;
+        return;
+    }
+    else {
+        temporary_columns = numCols - 1;
+        numCols--;
+        for (let i = 0; i < numRows; i++) {
+            table.deleteRow(0);
+        }
+        for (let i = 0; i < numRows; i++) {
+            newRow = table.insertRow();
+            for (let j = 0; j < temporary_columns; j++) {
+                cell = newRow.insertCell();
+            }
+        }
+    }
 }
 
 // Set global variable for selected color
