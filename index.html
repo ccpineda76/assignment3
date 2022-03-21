@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Grid Maker</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Menu Buttons -->
     <button onclick="addR()">Add Row</button>
     <button onclick="addC()">Add Col</button>
@@ -14,16 +14,17 @@
     <button onclick="fillAll()">Fill All</button>
     <button onclick="clearAll()">Clear</button>
     <select onchange="selectColor()" id="selectedColorId">
-        <option value="SELECT">SELECT</option>
-        <option value="Red">Red</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="Yellow">Yellow</option>
+      <option value="SELECT">SELECT</option>
+      <option value="Red">Red</option>
+      <option value="Blue">Blue</option>
+      <option value="Green">Green</option>
+      <option value="Yellow">Yellow</option>
     </select>
     <!-- Grid Table -->
     <table id="grid">
+      <!-- <td onclick="this.style.backgroundColor = 'Red'"></td> -->
     </table>
     <!-- Script -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
