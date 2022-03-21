@@ -19,7 +19,7 @@ function addR() {
         }
         numRows = numRows + 1;
     }
-    SelectColors() //Allowing cells to be selectable
+    SelectColors(); //Allowing cells to be selectable
 }
 
 // Add a column
@@ -36,21 +36,13 @@ function addC() {
         numCols++;
     }
     else {
+        for (let i = 0; i < numRows; i++) {
+            access_rows = table.rows[i];
+            access_rows.insertCell();
+        }
         numCols++;
-        let temporary_rows = numRows;
-        let temporary_columns = numCols;
-        for (let i = 0; i < temporary_rows; i++) {
-            table.deleteRow(0);
-        }
-        for (let i = 0; i < temporary_rows; i++) {
-            newRow = table.insertRow();
-            for (let j = 0; j < temporary_columns; j++) {
-                cell = newRow.insertCell();
-            }
-        }
-        numRows = temporary_rows;
     }
-    SelectColors() //Allowing cells to be selectable
+    SelectColors(); //Allowing cells to be selectable
 }
 
 // Remove a row
@@ -67,7 +59,7 @@ function removeR() {
     }
     table.deleteRow(numRows - 1);
     numRows--;
-    SelectColors() //Allowing cells to be selectable
+    SelectColors(); //Allowing cells to be selectable
 }
 
 // Remove a Column
@@ -84,16 +76,14 @@ function removeC() {
         numRows = 0;
         return;
     }
-    else
-    {
-        for (let i = 0; i < numRows; i++)
-        {
+    else {
+        for (let i = 0; i < numRows; i++) {
             access_rows = table.rows[i];
             access_rows.deleteCell(numCols - 1);
         }
         numCols--;
     }
-    SelectColors() //Allowing cells to be selectable
+    SelectColors(); //Allowing cells to be selectable
 }
 
 // Set global variable for selected color
