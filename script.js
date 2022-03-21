@@ -112,12 +112,10 @@ function fillAll() {
 
 // Clear all cells
 function clearAll() {
-    temporary_rows = numRows;
-    for (let i = 0; i < temporary_rows; i++) {
-        removeR();
+    var table = document.getElementById("grid").getElementsByTagName("td");
+    for (let i = 0; i < (numRows * numCols); i++) {
+        table[i].style.backgroundColor = "";
     }
-    numRows = 0;
-    numCols = 0;
 }
 
 function SelectColors() {
