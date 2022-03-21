@@ -55,23 +55,22 @@ function addC() {
 
 // Remove a row
 function removeR() {
+    var table = document.getElementById("grid");
     if (numRows == 0) {
         return;
     }
     else if (numRows == 1) {
-        var table = document.getElementById("grid");
-        table.deleteRow(0);
+        table.deleteRow(numRows - 1);
         numCols = 0;
         numRows--;
         return;
     }
-    var table = document.getElementById("grid");
-    table.deleteRow(0);
+    table.deleteRow(numRows - 1);
     numRows--;
     SelectColors() //Allowing cells to be selectable
 }
 
-// Remove a column
+// Remove a Column
 function removeC() {
     var table = document.getElementById("grid");
     if (numRows == 0) {
@@ -85,18 +84,14 @@ function removeC() {
         numRows = 0;
         return;
     }
-    else {
-        temporary_columns = numCols - 1;
+    else
+    {
+        for (let i = 0; i < numRows; i++)
+        {
+            access_rows = table.rows[i];
+            access_rows.deleteCell(numCols - 1);
+        }
         numCols--;
-        for (let i = 0; i < numRows; i++) {
-            table.deleteRow(0);
-        }
-        for (let i = 0; i < numRows; i++) {
-            newRow = table.insertRow();
-            for (let j = 0; j < temporary_columns; j++) {
-                cell = newRow.insertCell();
-            }
-        }
     }
     SelectColors() //Allowing cells to be selectable
 }
