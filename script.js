@@ -19,6 +19,15 @@ function addR() {
         }
         numRows = numRows + 1;
     }
+    //////// MAKING CELLS SELECTABLE/////////////
+    var tablelist = document.getElementById("grid");
+    variable = tablelist.getElementsByTagName("td");
+    for (let i = 0; i < (numRows * numCols); i++) {
+        variable[i].onclick = function () {
+            variable[i].style.backgroundColor = document.getElementById("selectedColorId").value;
+        }
+    }
+    //////////////////////////////////////////////
 }
 
 // Add a column
@@ -49,6 +58,15 @@ function addC() {
         }
         numRows = temporary_rows;
     }
+    //////// MAKING CELLS SELECTABLE/////////////
+    var tablelist = document.getElementById("grid");
+    variable = tablelist.getElementsByTagName("td");
+    for (let i = 0; i < (numRows * numCols); i++) {
+        variable[i].onclick = function () {
+            variable[i].style.backgroundColor = document.getElementById("selectedColorId").value;
+        }
+    }
+    //////////////////////////////////////////////
 }
 
 // Remove a row
@@ -66,6 +84,15 @@ function removeR() {
     var table = document.getElementById("grid");
     table.deleteRow(0);
     numRows--;
+    //////// MAKING CELLS SELECTABLE/////////////
+    var tablelist = document.getElementById("grid");
+    variable = tablelist.getElementsByTagName("td");
+    for (let i = 0; i < (numRows * numCols); i++) {
+        variable[i].onclick = function () {
+            variable[i].style.backgroundColor = document.getElementById("selectedColorId").value;
+        }
+    }
+    //////////////////////////////////////////////
 }
 
 // Remove a column
@@ -95,6 +122,15 @@ function removeC() {
             }
         }
     }
+    //////// MAKING CELLS SELECTABLE/////////////
+    var tablelist = document.getElementById("grid");
+    variable = tablelist.getElementsByTagName("td");
+    for (let i = 0; i < (numRows * numCols); i++) {
+        variable[i].onclick = function () {
+            variable[i].style.backgroundColor = document.getElementById("selectedColorId").value;
+        }
+    }
+    //////////////////////////////////////////////
 }
 
 // Set global variable for selected color
@@ -130,3 +166,5 @@ function clearAll() {
     numRows = 0;
     numCols = 0;
 }
+
+
