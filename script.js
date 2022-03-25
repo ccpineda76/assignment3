@@ -6,9 +6,9 @@ let colorSelected;
 // Add a row
 function addR() {
     var table = document.getElementById("grid");
-    if ((numRows == 0) && (numCols == 0)) {
-        newRow = table.insertRow();
-        cell = newRow.insertCell();
+    if ((numRows == 0) && (numCols == 0)) { //If there are both no columns or rows
+        newRow = table.insertRow(); //make a new row
+        cell = newRow.insertCell(); //make a new cell
         numRows++;
         numCols++;
     }
@@ -17,7 +17,7 @@ function addR() {
         for (let i = 0; i < numCols; i++) {
             cell = newRow.insertCell();
         }
-        numRows = numRows + 1;
+        numRows = numRows + 1; //otherwise add a new row with a corresponding cell
     }
     SelectColors(); //Allowing cells to be selectable
 }
@@ -25,19 +25,19 @@ function addR() {
 // Add a column
 function addC() {
     var table = document.getElementById("grid");
-    if ((numRows == 0) && (numCols == 0)) {
-        newRow = table.insertRow();
-        cell = newRow.insertCell();
-        numRows++;
-        numCols++;
+    if ((numRows == 0) && (numCols == 0)) { //If there are both no columns or rows
+        newRow = table.insertRow(); //make a new row
+        cell = newRow.insertCell(); //make a new cell
+        numRows++; //increment rows
+        numCols++;//increment columns
     }
-    else if (numRows == 1) {
-        cell = newRow.insertCell();
+    else if (numRows == 1) { //if there is one row create cell
+        cell = newRow.insertCell(); 
         numCols++;
     }
     else {
-        for (let i = 0; i < numRows; i++) {
-            access_rows = table.rows[i];
+        for (let i = 0; i < numRows; i++) { //for every row, add a cell
+            access_rows = table.rows[i]; 
             access_rows.insertCell();
         }
         numCols++;
@@ -48,10 +48,10 @@ function addC() {
 // Remove a row
 function removeR() {
     var table = document.getElementById("grid");
-    if (numRows == 0) {
+    if (numRows == 0) { //if there is nothing on the grid, return
         return;
     }
-    else if (numRows == 1) {
+    else if (numRows == 1) { //if there is only one row, delete row and set columns and rows to zero
         table.deleteRow(numRows - 1);
         numCols = 0;
         numRows--;
@@ -65,11 +65,11 @@ function removeR() {
 // Remove a Column
 function removeC() {
     var table = document.getElementById("grid");
-    if (numRows == 0) {
+    if (numRows == 0) { //if no rows then zero
         return;
     }
     else if (numCols == 1) {
-        for (let i = 0; i < numRows; i++) {
+        for (let i = 0; i < numRows; i++) { //if there is one column, delete row
             table.deleteRow(0);
         }
         numCols = 0;
@@ -106,7 +106,7 @@ function fillU() {
 function fillAll() {
     var table = document.getElementById("grid").getElementsByTagName("td");
     for (let i = 0; i < (numRows * numCols); i++) {
-        table[i].style.backgroundColor = document.getElementById("selectedColorId").value;
+        table[i].style.backgroundColor = document.getElementById("selectedColorId").value; //for every single index fill in with selected color
     }
 }
 
@@ -114,7 +114,7 @@ function fillAll() {
 function clearAll() {
     var table = document.getElementById("grid").getElementsByTagName("td");
     for (let i = 0; i < (numRows * numCols); i++) {
-        table[i].style.backgroundColor = "";
+        table[i].style.backgroundColor = ""; //put all colors back to white
     }
 }
 
@@ -124,7 +124,7 @@ function SelectColors() {
     variable = tablelist.getElementsByTagName("td");
     for (let i = 0; i < (numRows * numCols); i++) {
         variable[i].onclick = function () {
-            variable[i].style.backgroundColor = document.getElementById("selectedColorId").value;
+            variable[i].style.backgroundColor = document.getElementById("selectedColorId").value; //whatever cell is left clicked will become the selected color value
         }
     }
     //////////////////////////////////////////////////////////////
