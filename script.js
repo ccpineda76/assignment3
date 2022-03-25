@@ -31,8 +31,8 @@ function addC() {
         numRows++; //increment rows
         numCols++;//increment columns
     }
-    else if (numRows == 1) { //if there is one row create cell
-        cell = newRow.insertCell(); 
+    else if (numRows == 1) { 
+        table.rows[0].insertCell(); //at the first row, add cell 
         numCols++;
     }
     else {
